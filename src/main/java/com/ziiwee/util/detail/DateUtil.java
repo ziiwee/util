@@ -1,5 +1,7 @@
 package com.ziiwee.util.detail;
 
+import org.apache.commons.lang.time.DateUtils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,10 +9,11 @@ import java.util.Date;
 /**
  * Created by ziiwee on 2016/11/8.
  */
-public class DateUtil {
+public class DateUtil extends DateUtils {
 
     /**
      * 格式化
+     *
      * @param date
      * @param format
      * @return
@@ -21,6 +24,7 @@ public class DateUtil {
 
     /**
      * 格式化（yyyy-MM-dd HH:mm:ss）
+     *
      * @param date
      * @return
      */
@@ -30,6 +34,7 @@ public class DateUtil {
 
     /**
      * 格式化（yyyy-MM-dd）
+     *
      * @param date
      * @return
      */
@@ -39,6 +44,7 @@ public class DateUtil {
 
     /**
      * 格式化（yyyy-MM）
+     *
      * @param date
      * @return
      */
@@ -48,6 +54,7 @@ public class DateUtil {
 
     /**
      * 格式化（yyyy-MM-dd HH:mm）
+     *
      * @param date
      * @return
      */
@@ -57,6 +64,7 @@ public class DateUtil {
 
     /**
      * 字符串转换为日期类型
+     *
      * @param date
      * @param format
      * @return
@@ -71,6 +79,7 @@ public class DateUtil {
 
     /**
      * 字符串转换为日期类型（yyyy-MM-dd HH:mm:ss 或 yyyy-MM-dd）
+     *
      * @param value
      * @return
      */
@@ -86,6 +95,7 @@ public class DateUtil {
 
     /**
      * 字符串转换为日期类型（yyyy-MM-dd）
+     *
      * @param date
      * @return
      */
