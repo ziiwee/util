@@ -7,19 +7,19 @@ import com.ziiwee.util.detail.*;
  */
 public class ZUtil {
 
-    public class string extends StringUtil {
+    public class String extends StringUtil {
     }
 
-    public class date extends DateUtil {
+    public class Date extends DateUtil {
     }
 
-    public class random extends RandomUtil {
+    public class Random extends RandomUtil {
     }
 
-    public class security extends SecurityUtil {
+    public class Security extends SecurityUtil {
     }
 
-    public class http extends HttpRequestUtil {
+    public class Http extends HttpRequestUtil {
     }
 
 }

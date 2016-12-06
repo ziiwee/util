@@ -5,6 +5,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 /**
@@ -16,6 +17,7 @@ public class SecurityUtil {
 
     /**
      * DES解密
+     *
      * @param input
      * @return
      */
@@ -34,7 +36,7 @@ public class SecurityUtil {
                 bs1[i / 2] = (byte) Integer.parseInt(item, 16);
             }
             return new String(cipher.doFinal(bs1));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
@@ -42,6 +44,7 @@ public class SecurityUtil {
 
     /**
      * DES加密
+     *
      * @param input
      * @return
      */
@@ -55,7 +58,7 @@ public class SecurityUtil {
             cipher.init(Cipher.ENCRYPT_MODE, securekey, sr);
             byte[] bs = cipher.doFinal(input.getBytes());
             String output = "";
-            for(byte b: bs){
+            for (byte b : bs) {
                 String s = (Integer.toHexString(b & 0XFF));
                 if (s.length() == 1)
                     output += "0" + s;
@@ -63,7 +66,7 @@ public class SecurityUtil {
                     output += s;
             }
             return output.toUpperCase();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
@@ -97,5 +100,27 @@ public class SecurityUtil {
         }
     }
 
+    public static String sha1(String decript) {
+        try {
+            MessageDigest digest = java.security.MessageDigest
+                    .getInstance("SHA-1");
+            digest.update(decript.getBytes());
+            byte messageDigest[] = digest.digest();
+            // Create Hex String
+            StringBuilder hexString = new StringBuilder();
+            // 字节数组转换为 十六进制 数
+            for (byte aMessageDigest : messageDigest) {
+                String shaHex = Integer.toHexString(aMessageDigest & 0xFF);
+                if (shaHex.length() < 2) {
+                    hexString.append(0);
+                }
+                hexString.append(shaHex);
+            }
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
 
 }
